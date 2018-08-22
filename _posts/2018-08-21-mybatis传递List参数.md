@@ -151,9 +151,10 @@ public class TableTypeHandler extends BaseTypeHandler<Object> {
 # TableTypeHandler建立完毕后，需要配置XML文件，引入自定义参数类型
 
 **代码**
+(```)
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<!-- <mapper namespace="org.edi.stocktask.mapper.CodeBarMapper"> -->
+<mapper namespace="org.edi.stocktask.mapper.CodeBarMapper">
     <resultMap id="BaseResultMap" type="org.edi.stocktask.bo.codeBar.CodeBar">
         <result column="ProName" property="proName" jdbcType="VARCHAR" />
         <result column="ProValue" property="proValue" jdbcType="VARCHAR" />
@@ -210,7 +211,8 @@ public class TableTypeHandler extends BaseTypeHandler<Object> {
         #{message, jdbcType = NVARCHAR, mode = OUT}
         )}
     </select>
-<!-- </mapper> -->
+</mapper>
+(```)
 
 
 
