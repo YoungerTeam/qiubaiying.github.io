@@ -2,7 +2,7 @@
 layout:     post
 title:      Mybitis Mapper List
 subtitle:   Mapper List
-date:       2018-07-28
+date:       2018-08-21
 author:     Young
 header-img: img/post-bg-ios9-web.jpg
 catalog: true
@@ -217,7 +217,7 @@ public class TableTypeHandler extends BaseTypeHandler<Object> {
         )}
     </select>
 
-</mapper>
+<!-- </mapper> -->
 
 
 
