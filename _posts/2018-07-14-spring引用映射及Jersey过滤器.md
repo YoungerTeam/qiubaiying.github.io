@@ -51,17 +51,13 @@ public class RequestFilter implements ContainerRequestFilter,ContainerResponseFi
 
     @Override
     public void filter(ContainerRequestContext containerRequestContext) throws IOException {
-        //记录请求日志
-        try {
+         //记录请求日志
+        try{
             MultivaluedMap<String, String> params = containerRequestContext.getUriInfo().getQueryParameters();
-            //判断token是否有效--除登陆接口外
-            String msg = tokenVerificate.verification(params.getFirst(ServicePath.TOKEN_NAMER));
-            if(!msg.equals("ok")){
-                throw new AuthrizationException(msg);
-            }
-        } catch (Exception e){
-            e.printStackTrace();
-            throw e;
+            tokenVerificate.verification(params.getFirst(ServicePath.TOKEN_NAMER));
+        }catch (AuthrizationException e){
+            Response response = Response.ok(new Result(e)).type(MediaType.APPLICATION_JSON).build();
+            throw new WebApplicationException(response);
         }
     }
 
