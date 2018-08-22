@@ -153,7 +153,7 @@ public class TableTypeHandler extends BaseTypeHandler<Object> {
 **代码**
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.edi.stocktask.mapper.CodeBarMapper">
+<!-- <mapper namespace="org.edi.stocktask.mapper.CodeBarMapper"> -->
     <resultMap id="BaseResultMap" type="org.edi.stocktask.bo.codeBar.CodeBar">
         <result column="ProName" property="proName" jdbcType="VARCHAR" />
         <result column="ProValue" property="proValue" jdbcType="VARCHAR" />
@@ -169,16 +169,12 @@ public class TableTypeHandler extends BaseTypeHandler<Object> {
     </parameterMap>
 
 
-
-
     <!-- 此为调用存储过程传递List<Object>的具体配置-->
     <parameterMap id="BatchCodeBarParamMap" type="map">
         <parameter property="codeBarParams" jdbcType="ARRAY" javaType="java.util.List" mode="IN" typeHandler="org.edi.stocktask.util.TableTypeHandler"/>
         <parameter property="baseType" jdbcType="VARCHAR" mode="IN"/>
         <parameter property="baseEntry" jdbcType="INTEGER" mode="IN"/>
     </parameterMap>
-
-
 
 
     <!-- 此为调用存储过程传递List<Object>的具体配置-->
@@ -189,8 +185,6 @@ public class TableTypeHandler extends BaseTypeHandler<Object> {
         <result column="ItemCode" property="itemCode" jdbcType="VARCHAR" />
         <result column="CodeBar" property="codeBar" jdbcType="VARCHAR" />
     </resultMap>
-
-
 
 
     <select id="parseCodeBar" statementType="CALLABLE" parameterMap="codeBarParam" resultMap="BaseResultMap">
@@ -216,7 +210,6 @@ public class TableTypeHandler extends BaseTypeHandler<Object> {
         #{message, jdbcType = NVARCHAR, mode = OUT}
         )}
     </select>
-
 <!-- </mapper> -->
 
 
